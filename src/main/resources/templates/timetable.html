@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Timetable</title>
+	
+	<link rel="stylesheet" th:href="@{/css/basic.css}" />
+</head>
+
+<body class="body">
+	<a th:text="${title}" class="timetableTitleLarge"></a>
+	<div class="timetableContainer">
+		<div class="timetableGrid">
+			<div class="timetableDays">
+				<div class="timetableTitle">MONDAY</div>
+				<div class="timetableTitle">TUESEDAY</div>
+				<div class="timetableTitle">WEDNESDAY</div>
+				<div class="timetableTitle">THURSDAY</div>
+				<div class="timetableTitle">FRIDAY</div>
+			</div>
+			<div class="timetableTable">
+				<div th:each="slot, iter: ${timetableSlots}" class="timetableItem" 
+					th:classappend="${slot != 0} ? 'lession' : 'null'">
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+</body >
+</html>

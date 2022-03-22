@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Timetable</title>
+	
+	<link rel="stylesheet" th:href="@{/css/user.css}" />
+	<link rel="stylesheet" th:href="@{/css/basic.css}" />
+</head>
+
+<body class="body">
+	<div class="userContainer">
+		<div th:text="${user}" class="userName"></div>
+		<hr>
+		<div class="lessionList">
+			<div th:each="lession,iter :${lessions}" class="lessionItem">
+				<div th:text="${lession.name}" class="lessionName"></div>
+				<div class="buttonContainer">
+					<a class="lessionButton" th:href="@{/timetable/{id}(id=${lession.id - 1})}"> TIMETABLE </a>
+					<a th:if="${teacher}" class="lessionButton" > STUDENTS </a>
+				</div>
+			</div>
+		</div>
+		<hr>
+	</div>
+</body >
+</html>
