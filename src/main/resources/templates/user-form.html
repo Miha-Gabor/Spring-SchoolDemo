@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>New student</title>
+	
+	<link rel="stylesheet" th:href="@{/css/user.css}" />
+	<link rel="stylesheet" th:href="@{/css/basic.css}" />
+	<link rel="stylesheet" th:href="@{/css/form.css}" />
+</head>
+
+<body class="body">
+	<div class="userContainer">
+		<div th:text="${title}" class="userName"></div>
+		<hr>
+		<div class="formContainer">
+			<form action="#" th:action="@{/addNewStudent}" th:object="${student}" method="post" class="formGrid">
+				<p class="formText">First Name</p>
+				<input type="text" th:field="*{name}"/>
+				<p class="formText">Last Name</p>
+				<input type="text" th:field="*{surname}"/>
+				<input type="submit" value="Submit" />
+			</form>
+		</div>
+	
+		<hr>
+		<div th:if="${formCheck}">
+				<p th:text="${formOutput}"></p>
+		</div>
+
+	</div>
+</body >
+</html>

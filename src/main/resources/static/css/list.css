@@ -1,0 +1,48 @@
+.listContainer{
+	display: grid;
+	grid-auto-rows: 32px;
+	gap: 3px;
+	padding: 10px;
+}
+
+.listItem{
+	background-color: #939393;
+	display: grid;
+	gap:10px;
+	grid-template-columns: calc(100% - 260px) 120px 120px;
+}
+
+.listText{
+	font-size: 21px;
+	line-height: 32px;
+	color: #353535;
+	padding-left:5px;
+	color:white;
+}
+
+.listButtonContainer{
+	position: relative;
+	right: 0px;
+	width: 50%;
+	height: 100%;
+	direction: rtl;
+	display: grid;
+	grid-auto-columns: 120px;
+}
+
+.listButton{
+	font-size: 16px;
+	line-height: 32px;
+	color: #353535;
+	padding-left:5px;
+	background-color: orange;
+	text-decoration: none;
+}
+
+.listButton.center{
+	text-align: center;
+}
+
+.listButton:hover{
+	background-color: #ffc964;
+}

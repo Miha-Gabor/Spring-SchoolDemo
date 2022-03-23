@@ -3,26 +3,42 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Timetable</title>
+	<title th:text="${title}"></title>
 	
 	<link rel="stylesheet" th:href="@{/css/user.css}" />
 	<link rel="stylesheet" th:href="@{/css/basic.css}" />
 </head>
 
 <body class="body">
+	<a href="/admin/students">Back</a>
 	<div class="userContainer">
-		<div th:text="${user}" class="userName"></div>
+		<div th:text="${title}" class="userName"></div>
 		<hr>
+		<p class="lessionType">Current Lessions</p>
 		<div class="lessionList">
-			<div th:each="lession,iter :${lessions}" class="lessionItem">
-				<div th:text="${lession.name}" class="lessionName"></div>
-				<div class="buttonContainer">
-					<a class="lessionButton" th:href="@{/timetable/{id}(id=${lession.id - 1})}"> TIMETABLE </a>
-					<a th:if="${teacher}" class="lessionButton" > STUDENTS </a>
+			<div th:each="listItem,iter :${list}" class="lessionItem">
+				<div th:text="${listItem}" class="lessionName"></div>
+				<div th:if="${buttons}" class="buttonContainer">
+					<a th:if="${student}" class="lessionButton" th:href="@{/student/{studentId}/remove_{lessionId} (studentId=${student.id}, lessionId=${listItem.id})}"> REMOVE </a>
+					<a class="lessionButton" th:href="@{/timetable/{id}(id=${lessions[iter.index].id - 1})}"> TIMETABLE </a>
+					<a th:if="${teacher}" th:href="@{/lession/{id}(id=${lessions[iter.index].id - 1})}" class="lessionButton" > STUDENTS </a>
 				</div>
 			</div>
 		</div>
 		<hr>
+		<div th:if="${student}">
+			<p class="lessionType" >Avalible Lessions</p>
+			<div class="lessionList">
+				<div th:each="listItem,iter :${avalibleList}" class="lessionItem">
+					<div th:text="${listItem}" class="lessionName"></div>
+					<div th:if="${buttons}" class="buttonContainer">
+						<a class="lessionButton" th:href="@{/student/{studentId}/add_{lessionId} (studentId=${student.id}, lessionId=${listItem.id})}"> ADD LESSION </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
 	</div>
 </body >
 </html>

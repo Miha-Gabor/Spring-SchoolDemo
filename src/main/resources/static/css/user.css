@@ -15,8 +15,15 @@
 
 .userName{
 	font-size: 42px;
-	color: white;
+	color: #fcd578;
 	padding: 5px 0 0 10px;
+}
+
+.lessionType{
+	font-size: 36px;
+	color: #fae9c5;
+	padding-left: 5px;
+	margin:0px;
 }
 
 .lessionList{
@@ -47,6 +54,16 @@
 	height: 28px;
 	gap: 10px;
 	grid-auto-columns: 120px;
+}
+
+.buttonContainerWide{
+	display: grid;
+	left:10px;
+	position: relative;
+	grid-auto-flow: column;
+	height: 28px;
+	gap: 10px;
+	grid-auto-columns: 220px;
 }
 
 .lessionButton{

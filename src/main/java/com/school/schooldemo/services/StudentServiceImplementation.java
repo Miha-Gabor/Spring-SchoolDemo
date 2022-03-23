@@ -25,4 +25,25 @@ public class StudentServiceImplementation implements StudentService {
 		return studentDao.getAllStudents();
 	}
 
+	@Override
+	@Transactional
+	public void addStudent(Student student) {
+		studentDao.addStudent(student);
+	}
+
+	@Override
+	@Transactional
+	public void deleteStudentById(int id) {
+		studentDao.deleteStudentById(id);
+		
+	}
+
+	@Override
+	@Transactional
+	public Student getStudentById(int id) {
+		return studentDao.getStudentById(id);
+	}
+	
+	
+
 }

@@ -99,6 +99,12 @@ public class Lession {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String toString() {
+		return "[" + id + "] " + name + " - " + description + "";
+	}
+	
 	
 	
 }

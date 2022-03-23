@@ -76,5 +76,10 @@ public class Teacher {
 		this.surname = surname;
 	};
 	
+	@Override
+	public String toString() {
+		return "[" + id + "] " + name + " " + surname;
+	}
+	
 	
 }
