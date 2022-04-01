@@ -34,7 +34,7 @@ public class Timeslot {
 			   joinColumns=@JoinColumn(name="timeslot_timeslot_id"),
 			   inverseJoinColumns=@JoinColumn(name="class_class_id"))
 	public List<Lession> lessions;
-	public void addTimeslot(Lession lession) {
+	public void addLession(Lession lession) {
 		if(lessions == null) {
 			lessions = new ArrayList<>();
 		}
@@ -47,12 +47,17 @@ public class Timeslot {
 	public Timeslot(int timeslot) {
 		this.timeslot = timeslot;
 	}
+	
+	public Timeslot(int id, int timeslot) {
+		this.id= id;
+		this.timeslot = timeslot;
+	}
 
+	// GET / SET
 	public int getId() {
 		return id;
 	}
 	
-	// GET / SET
 	public void setId(int id) {
 		this.id = id;
 	}

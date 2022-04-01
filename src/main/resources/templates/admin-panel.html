@@ -5,19 +5,24 @@
 <head>
 	<title>Admin panel</title>
 	
-	<link rel="stylesheet" th:href="@{/css/user.css}" />
-	<link rel="stylesheet" th:href="@{/css/basic.css}" />
+	<link rel="stylesheet" th:href="@{/css/base.css}" />
 	<link rel="stylesheet" th:href="@{/css/list.css}" />
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+	</style>
 </head>
 
-<body class="body">
-	<div class="userContainer">
-		<div class="userName">Admin Panel</div>
+<body>
+	<div class="container">
+		<div class="textTitle">Admin Panel</div>
 		<hr>
-		<div class="buttonContainerWide">
-			<a class="lessionButton" href="/admin/students">Students</a>
-			<a class="lessionButton" href="/admin/teachers">Teachers</a>
-			<a class="lessionButton" href="/admin/lessions">Lessions</a>
+		<div class="buttonContainer">
+			<a class="button" href="/admin/students">
+				<p class="textButton"> Students </p> </a>
+			<a class="button" href="/admin/teachers">
+				<p class="textButton"> Teachers </p> </a>
+			<a class="button" href="/admin/lessions">
+				<p class="textButton"> Lessions </p> </a>
 		</div>
 		<hr>
 		<div class="listContainer">
@@ -25,26 +30,30 @@
 			<div th:each="listItem, iter:${list}" class="listItem">
 				<div th:text="${listItem}" class="listText"> </div>
 				<!-- STUDENT -->
-				<a th:if="${student}" 
-					th:href="@{deleteStudent/{studentId}(studentId=${studentList[iter.index].id})}" 
-					class="listButton center"
-					th:attr="onclick=|if(!(confirm('Are you sure you want to delete [${listItem}]'))) return false|">DELETE</a>
+				<div class="buttonContainer left">
+					<a th:if="${student}" 
+						th:href="@{deleteStudent/{studentId}(studentId=${studentList[iter.index].id})}" 
+						class="button"
+						th:attr="onclick=|if(!(confirm('Are you sure you want to delete [${listItem}]'))) return false|">
+						<p class="textButton"> DELETE </p> </a>
+						
+					<a th:if="${student}" 
+					th:href="@{/student/{studentId}(studentId=${studentList[iter.index].id})}" 
+					class="button"> <p class="textButton"> VIEW </p> </a>
 					
-				<a th:if="${student}" 
-				th:href="@{/student/{studentId}(studentId=${studentList[iter.index].id})}" 
-				class="listButton center">VIEW</a>
+					<!-- LESSION -->
+					<a th:if="${lession}" th:href="@{/timetable/lession/{id}/edit (id=${lessions[iter.index].id - 1})}" class="button"> 
+						<p class="textButton"> EDIT </p></a>
+						
+					<a th:if="${lession}" 
+					th:href="@{/lession/{id}(id=${lessions[iter.index].id - 1})}" 
+					class="button"> <p class="textButton"> STUDENTS </p> </a>
+					
+					<!-- TEACHER -->
+					<a th:if="${teacher}" ></a>
+					<a th:if="${teacher}" th:href="@{/teacher/{id}(id=${teachers[iter.index].id - 1})}" class="button"> <p class="textButton"> VIEW </p></a>
+				</div>
 				
-				<!-- LESSION -->
-				<a th:if="${lession}"></a>
-				<a th:if="${lession}" 
-				th:href="@{/lession/{id}(id=${lessions[iter.index].id - 1})}" 
-				class="listButton center">STUDENTS</a>
-				
-				<!-- TEACHER -->
-				<a th:if="${teacher}"></a>
-				<a th:if="${teacher}" 
-				th:href="@{/teacher/{id}(id=${teachers[iter.index].id - 1})}" 
-				class="listButton center">VIEW</a>
 			</div>
 		</div>
 	</div>

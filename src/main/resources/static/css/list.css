@@ -1,48 +1,35 @@
 .listContainer{
-	display: grid;
-	grid-auto-rows: 32px;
-	gap: 3px;
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 20px);
 	padding: 10px;
+	
+	gap: 3px;
 }
 
 .listItem{
-	background-color: #939393;
-	display: grid;
-	gap:10px;
-	grid-template-columns: calc(100% - 260px) 120px 120px;
+	background-color: #F5F5F5;
+	align-items: center;
+	display: flex;
 }
 
 .listText{
-	font-size: 21px;
-	line-height: 32px;
-	color: #353535;
-	padding-left:5px;
-	color:white;
-}
-
-.listButtonContainer{
-	position: relative;
-	right: 0px;
-	width: 50%;
-	height: 100%;
-	direction: rtl;
-	display: grid;
-	grid-auto-columns: 120px;
+	width: 920px;
+	font-family: 'Roboto Slab', serif;
+	font-size: 18px;
+	padding-left: 5px;
 }
 
 .listButton{
-	font-size: 16px;
-	line-height: 32px;
-	color: #353535;
-	padding-left:5px;
-	background-color: orange;
+	background-color: #F5F5F5;
+	height: 30px;
+	font-family: 'Roboto Slab', serif;
 	text-decoration: none;
-}
-
-.listButton.center{
+	line-height: 30px;
 	text-align: center;
+	color: black;
 }
 
 .listButton:hover{
-	background-color: #ffc964;
+	background-color: #B2C9E6;
 }
